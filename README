@@ -38,7 +38,7 @@ INSTALLATION:
 
   ARTISAN:
 
-    (artisan directions to go here)
+    php artisan bundle:install freegeoip
 
   || DOWNLOAD:
 
