@@ -1,0 +1,46 @@
+---------------------------------------------------------------------------
+FreeGeoIP.net Bundle for Laravel Framework.
+---------------------------------------------------------------------------
+
+WHAT IS IT?
+
+  A bundle for the Laravel Framework (http://www.laravel.com).
+
+  This bundle provides a static class which retrieves geo location
+  based on the user's IP address through the freegeoip.net API.
+  (http://www.freegeoip.net).
+
+  Thanks to FreeGeoIP.net you can, with some degree of accuracy retrieve
+  the following information about your users within the Laravel framework.
+
+    - Country
+    - 2-digit Country Code
+    - City
+    - Region (Province, State)
+    - 2-digit Region Code
+    - Latitude
+    - Longitude
+
+
+
+My first bundle and it just don't get any simpler than this.
+
+Installation:
+
+  (PLACEHOLDER)
+
+    (artisan directions to go here)
+
+  Add to Bundles:
+
+    Open your application/bundles.php file, add 'freegeoip' the array:
+    
+    return array(
+        'freegeoip' => array(),
+    );
+
+Usage:
+
+  Wherever you wish to get some location info...
+
+    
