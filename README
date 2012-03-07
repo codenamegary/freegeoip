@@ -25,6 +25,9 @@ WHAT IS IT?
     - Latitude
     - Longitude
 
+  NOTE:
+    There is a limit of 1000 requests per hour per client on the FreeGeoIP API.
+
 INSTALLATION:
 
   PREREQUISITES:
