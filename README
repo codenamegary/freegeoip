@@ -27,17 +27,17 @@ WHAT IS IT?
 
 INSTALLATION:
 
-    PREREQUISITES:
+  PREREQUISITES:
 
-      Sessions configured and active, the FreeGeoIP class will use a
-      session variable called 'geo' to store and timestamp the information
-      it retrieves.
+    Sessions configured and active, the FreeGeoIP class will use a
+    session variable called 'geo' to store and timestamp the information
+    it retrieves.
 
-    ARTISAN:
+  ARTISAN:
 
     (artisan directions to go here)
 
-  ... or DOWNLOAD:
+  || DOWNLOAD:
 
     (download link to go here)
 
@@ -49,13 +49,13 @@ INSTALLATION:
           'freegeoip' => array(),
       );
 
-CONFIGURATION:
+    Alternatively, auto-load the bundle.
 
-  Being there are only 2 variables you may want to tweak I opted to
-  include them in the class rather than a separate config file. </lazy>
-
-    1. Open bundles/freegeoip/FreeGeoIP.php
-    2. Modify the $curltimeout and $refreshInterval variables as desired.
+      return array(
+          'freegeoip' => array(
+            'auto' => true,
+          ),
+      );
 
 USAGE:
 
@@ -67,8 +67,38 @@ USAGE:
   available.
 
     echo FreeGeoIP::city();
+    echo FreeGeoIP::country_name();
+    echo FreeGeoIP::country_code();
+    echo FreeGeoIP::region_name();
     echo FreeGeoIP::region_code();
+    echo FreeGeoIP::longitude();
+    echo FreeGeoIP::latitude();
 
+  If you would like to force a refresh of the geo data you can, like this.
+
+    FreeGeoIP::refresh(true);
+
+  If you would like to forget the geo data, you can, like this.
+
+    FreeGeoIP::forget();
+
+  If you would like to simply access the session data directly, you can.
+
+    Session::get('geo')->city;
+    Session::get('geo')->country_name;
+    Session::get('geo')->country_code;
+    Session::get('geo')->region_name;
+    Session::get('geo')->region_code;
+    Session::get('geo')->longitude;
+    Session::get('geo')->latitude;
+
+CONFIGURATION OPTIONS:
+
+  Being there are only 2 variables you may want to tweak I opted to
+  include them in the class rather than a separate config file. </lazy>
+
+    1. Open bundles/freegeoip/FreeGeoIP.php
+    2. Modify the $curltimeout and $refreshInterval variables as desired.
   
 HOW IT WORKS:
 
@@ -94,4 +124,4 @@ HOW IT WORKS:
   it simply leaves the existing session 'geo' data as is.
 
   Because magic static methods are fun, you don't have to use the session
-  variable directly to access the location data. Anywhere in your code
+  variable directly to access the location data... but you can.
