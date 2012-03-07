@@ -40,7 +40,8 @@ it retrieves.
 
 ###|| Download:
 
-    (download link to go here)
+    https://github.com/downloads/codenamegary/freegeoip/freegeoip.tar.gz
+    and extract to bundles/freegeoip
 
 ###Add to Bundles:
 
