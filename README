@@ -1,6 +1,10 @@
----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
 FreeGeoIP.net Bundle for Laravel Framework.
----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+DISCLAIMER:
+
+  The developer of this Laravel bundle is not affiliated with FreeGeoIP.net.
 
 WHAT IS IT?
 
@@ -21,26 +25,73 @@ WHAT IS IT?
     - Latitude
     - Longitude
 
+INSTALLATION:
 
+    PREREQUISITES:
 
-My first bundle and it just don't get any simpler than this.
+      Sessions configured and active, the FreeGeoIP class will use a
+      session variable called 'geo' to store and timestamp the information
+      it retrieves.
 
-Installation:
-
-  (PLACEHOLDER)
+    ARTISAN:
 
     (artisan directions to go here)
 
-  Add to Bundles:
+  ... or DOWNLOAD:
+
+    (download link to go here)
+
+  ADD TO BUNDLES:
 
     Open your application/bundles.php file, add 'freegeoip' the array:
     
-    return array(
-        'freegeoip' => array(),
-    );
+      return array(
+          'freegeoip' => array(),
+      );
 
-Usage:
+CONFIGURATION:
 
-  Wherever you wish to get some location info...
+  Being there are only 2 variables you may want to tweak I opted to
+  include them in the class rather than a separate config file. </lazy>
 
-    
+    1. Open bundles/freegeoip/FreeGeoIP.php
+    2. Modify the $curltimeout and $refreshInterval variables as desired.
+
+USAGE:
+
+  Anywhere it's required, start the bundle.
+
+    Bundle::start('freegeoip');
+
+  That's it. Now just reference the geo data. All of the following are
+  available.
+
+    echo FreeGeoIP::city();
+    echo FreeGeoIP::region_code();
+
+  
+HOW IT WORKS:
+
+  Q: But if I have a lot of users, won't making a CURL call everytime
+     the user loads a page affect the performance of my site?
+
+  A: Yes, so we timestamp the geo data and compare it against an interval.
+
+    -> Bundle starts
+    -> Bundle looks for 'geo' session variable
+    -> Bundle compares 'geo' timestamp to current time
+    -> If refreshInterval has elapsed, a refresh is triggered
+    -> Optionally you may call FreeGeoIP::refresh(true) to force it
+    -> Geo data is exposed through session variable as well as
+       magic methods on the FreeGeoIP class.
+
+  The bundle provides a static class called "FreeGeoIP". Curl is used to
+  retrieve geo information from FreeGeoIP.net and is then timestamped and
+  stored in a session variable called 'geo'. Each time the bundle starts
+  it checks the age of the current session 'geo' data and compares it to
+  the configured $refreshInterval. Default is set to 30 minutes. If the
+  interval is exceeded the class will automatically refresh the data, else
+  it simply leaves the existing session 'geo' data as is.
+
+  Because magic static methods are fun, you don't have to use the session
+  variable directly to access the location data. Anywhere in your code
