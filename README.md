@@ -1,12 +1,10 @@
------------------------------------------------------------------------------
-FreeGeoIP.net Bundle for Laravel Framework.
------------------------------------------------------------------------------
+##FreeGeoIP.net Bundle for Laravel Framework.
 
-DISCLAIMER:
+**DISCLAIMER:
 
   The developer of this Laravel bundle is not affiliated with FreeGeoIP.net.
 
-WHAT IS IT?
+**WHAT IS IT?
 
   A bundle for the Laravel Framework (http://www.laravel.com).
 
@@ -28,7 +26,7 @@ WHAT IS IT?
   NOTE:
     There is a limit of 1000 requests per hour per client on the FreeGeoIP API.
 
-INSTALLATION:
+**INSTALLATION:
 
   PREREQUISITES:
 
@@ -60,7 +58,7 @@ INSTALLATION:
           ),
       );
 
-USAGE:
+##USAGE:
 
   Anywhere it's required, start the bundle.
 
