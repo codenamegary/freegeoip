@@ -1,10 +1,10 @@
-#FreeGeoIP.net Bundle for Laravel Framework.
+#FreeGeoIP.net API Bundle for Laravel Framework
 
 ###DISCLAIMER:
 
 The developer of this Laravel bundle is not affiliated with FreeGeoIP.net.
 
-###WHAT IS IT?
+###What is it?
 
 A bundle for the Laravel Framework (http://www.laravel.com).
 
@@ -23,26 +23,26 @@ the following information about your users within the Laravel framework.
     - Latitude
     - Longitude
 
-NOTE:
+###Note:
 There is a limit of 1000 requests per hour per client on the FreeGeoIP API.
 
-#INSTALLATION:
+#Installation
 
-###PREREQUISITES:
+###Prerequisites
 
 Sessions configured and active, the FreeGeoIP class will use a
 session variable called 'geo' to store and timestamp the information
 it retrieves.
 
-###ARTISAN:
+###Artisan:
 
     php artisan bundle:install freegeoip
 
-###|| DOWNLOAD:
+###|| Download:
 
     (download link to go here)
 
-###ADD TO BUNDLES:
+###Add to Bundles:
 
 Open your application/bundles.php file, add 'freegeoip' the array:
     
@@ -58,7 +58,7 @@ Alternatively, auto-load the bundle.
           ),
       );
 
-#USAGE:
+#Usage
 
 Anywhere it's required, start the bundle.
 
@@ -93,7 +93,7 @@ If you would like to simply access the session data directly, you can.
     Session::get('geo')->longitude;
     Session::get('geo')->latitude;
 
-##CONFIGURATION OPTIONS:
+##Configuration Options
 
 Being there are only 2 variables you may want to tweak I opted to
 include them in the class rather than a separate config file. </lazy>
@@ -101,7 +101,7 @@ include them in the class rather than a separate config file. </lazy>
     1. Open bundles/freegeoip/FreeGeoIP.php
     2. Modify the $curltimeout and $refreshInterval variables as desired.
   
-##HOW IT WORKS:
+##How it Works
 
 Q: But if I have a lot of users, won't making a CURL call everytime
    the user loads a page affect the performance of my site?
