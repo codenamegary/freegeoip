@@ -45,9 +45,9 @@ class FreeGeoIP {
    }
 
    /**
-	 * Compares the current time to the refresh time,
-	 * if time has lapsed beyond the refresh interval
-	 * then call getdata().
+    * Compares the current time to the refresh time,
+    * if time has lapsed beyond the refresh interval
+    * then call getdata().
     *
     * Note that refreshtime() will refer to the __callStatic magic method
     * and ultimately return a value from the FreeGeoIP session variable.
