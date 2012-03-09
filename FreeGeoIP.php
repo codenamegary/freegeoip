@@ -20,10 +20,10 @@ class FreeGeoIP {
 
 
    /**
-	 * Make the cURL call to the FreeGeoIP.net API
-	 *
-	 * @return null
-	 */
+    * Make the cURL call to the FreeGeoIP.net API
+    *
+    * @return null
+    */
    static protected function getdata()
    {
       // Construct the URL for the call
@@ -55,7 +55,7 @@ class FreeGeoIP {
     *
     * @param boolean          $force
     * @return null
-	 */
+    */
    static public function refresh($force = false)
    {
       // The interval is set in minutes for convenience so convert it
@@ -72,24 +72,24 @@ class FreeGeoIP {
    }
 
    /**
-	 * Just trashes the freegeoip session var
-	 *
-	 * @return null
-	 */
+    * Just trashes the freegeoip session var
+    *
+    * @return null
+    */
    static public function forget()
    {
       Session::has('freegeoip') ? Session::forget('freegeoip') : '' ;
    }
 
    /**
-	 * Ultra basic magic methods for this static class.
-	 * Looks to see if the freegeoip session var has a
-	 * property with the corresponding name, if so returns
-	 * the current value.
+    * Ultra basic magic methods for this static class.
+    * Looks to see if the freegeoip session var has a
+    * property with the corresponding name, if so returns
+    * the current value.
     *
     * @param string           $methodname
     * @return null if property $methodname does not exist
-	 */
+    */
    static public function __callStatic($methodname,$arguments) {
       // Only returns a value if...
       //   - The session var 'freegeoip' exists and
@@ -100,11 +100,11 @@ class FreeGeoIP {
    }
 
    /**
-	 * Just converts the refreshtime on the data to an ISO8601 format and
-	 * returns it as a string.
-	 *
-	 * @return string
-	 */
+    * Just converts the refreshtime on the data to an ISO8601 format and
+    * returns it as a string.
+    *
+    * @return string
+    */
    static public function updated()
    {
       return date(DATE_ISO8601,self::refreshtime());
