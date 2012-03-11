@@ -31,7 +31,7 @@ There is a limit of 1000 requests per hour per client on the FreeGeoIP API.
 ###Prerequisites
 
 Sessions configured and active, the FreeGeoIP class will use a
-session variable called 'geo' to store and timestamp the information
+session variable called 'freegeoip' to store and timestamp the information
 it retrieves.
 
 ###Artisan:
@@ -86,13 +86,13 @@ If you would like to forget the geo data, you can, like this.
 
 If you would like to simply access the session data directly, you can.
 
-    Session::get('geo')->city;
-    Session::get('geo')->country_name;
-    Session::get('geo')->country_code;
-    Session::get('geo')->region_name;
-    Session::get('geo')->region_code;
-    Session::get('geo')->longitude;
-    Session::get('geo')->latitude;
+    Session::get('freegeoip')->city;
+    Session::get('freegeoip')->country_name;
+    Session::get('freegeoip')->country_code;
+    Session::get('freegeoip')->region_name;
+    Session::get('freegeoip')->region_code;
+    Session::get('freegeoip')->longitude;
+    Session::get('freegeoip')->latitude;
 
 ##Configuration Options
 
@@ -110,8 +110,8 @@ Q: But if I have a lot of users, won't making a CURL call everytime
 A: Yes, so we timestamp the geo data and compare it against an interval.
 
     -> Bundle starts
-    -> Bundle looks for 'geo' session variable
-    -> Bundle compares 'geo' timestamp to current time
+    -> Bundle looks for 'freegeoip' session variable
+    -> Bundle compares 'freegeoip' timestamp to current time
     -> If refreshInterval has elapsed, a refresh is triggered
     -> Optionally you may call FreeGeoIP::refresh(true) to force it
     -> Geo data is exposed through session variable as well as
