@@ -27,7 +27,7 @@ class FreeGeoIP {
    static protected function getdata()
    {
       // Construct the URL for the call
-      $curlURL = sprintf(self::$geoURL,getenv(REMOTE_ADDR));
+      $curlURL = sprintf(self::$geoURL,getenv($_SERVER['REMOTE_ADDR']));
       // Init curl
       $ch = curl_init();
       // Set the options for curl
