@@ -24,10 +24,10 @@ class FreeGeoIP {
     *
     * @return null
     */
-   static protected function getdata()
+   static protected function getdata($IPOrHostName = null)
    {
       // Construct the URL for the call
-      $curlURL = sprintf(self::$geoURL,getenv($_SERVER['REMOTE_ADDR']));
+      $curlURL = sprintf(self::$geoURL,getenv(($IPOrHostName != null) ? $IPOrHostName : $_SERVER['REMOTE_ADDR']));
       // Init curl
       $ch = curl_init();
       // Set the options for curl
